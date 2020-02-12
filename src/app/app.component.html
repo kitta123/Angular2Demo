@@ -1,0 +1,13 @@
+<div>
+    <app-employee></app-employee>
+</div>
+<br>
+<div>
+    <app-employeeList></app-employeeList>
+</div>
+<br>
+Name : <input [value]='name' (input)='name = $event.target.value'>
+<br>
+Name : <input [(ngModel)]='name'>
+<br>
+You entered : {{name}}

@@ -1,0 +1,166 @@
+1. What is ECMAScript 
+2. Wha is Type Script
+
+What is ECMAScript :- 
+------------------
+The JavaScript language standard is officially called ECMAScript. 
+Over the past several years many versions of ECMAScript were released starting with ECMAScript version 1 all the way till ECMAScript version 7.
+
+Wha is Type Script :-
+------------------
+TypeScript is a free and open-source programming language developed by Microsoft. 
+It is a superset of JavaScript and compiles to JavaScript through a process called transpilation. 
+Using TypeScript to build angular applications provides several benefits.
+1. Intellisense 
+2. Autocompletion
+3. Code navigation
+4. Advanced refactoring
+5. Strong Typing
+6. Supports ES 2015 (also called ES 6)
+===================================================================================
+What is a component?
+-------------------
+A component in Angular is a class with a template and a decorator.
+Components are the basic building blocks of angular application.
+
+Template - Defines the user interface. Contains the HTML, directives and bindings.
+Class - Contains the code required for template.
+Decorator - We use the Component decorator provided by Angular to add metadata to the class.
+
+Example:-
+-------
+import { Component } from "@angular/core";
+
+@Component({ //decorator
+  selector: 'my-app', //metadata
+  template:`<h1>Hello {{name}}</h1>` //template
+})
+export class AppComponent { //class
+  name: string = 'Angular';
+}
+==================================================================================================
+What is AppModule?
+AppModule is the root module which bootstraps and launches the angular application. 
+You can name it anything you want, but by convention it is named AppModule.
+
+BrowserModule - Every application that runs in a browser needs this module.
+NgModule - @component decorator adds metadata to an angular component class, 
+similarly @NgModule decorator adds metadata to the angular module class.
+
+Properties of the @NgModule decorator :-
+-------------------------------------
+imports - Imports the BrowserModule required for an angular application to run in a web browser.
+declarations - Contains the components registered with this module. 
+bootstrap - Contains the root component that Angular creates and inserts into the index.html host web page.
+
+=====================================================================================================
+Angular interpolation :-
+----------------------
+Interpolation is all about data binding. 
+In Angular data-binding can be broadly classified into 3 categories
+
+One way data-binding - From Component to View Template.To display read-only data.{{propertyName}}.
+One way data-binding - From View Template to Component.
+Two way data-binding - From Component to View Template & From View template to Component.
+
+Interpolation :-
+Interpolation is a special syntax that Angular converts into a property binding. 
+Interpolation is just a convenient alternative to property binding. 
+example :- <img src='http://www.pragimtech.com/{{imagePath}}' />
+
+Property binding :-
+With Property binding we enclose the element property name in square brackets.
+ex :- <button [disabled]='isDisabled'>Click me</button>.
+
+We can also use the alternate syntax with bind- prefix. This is known as canonical form
+ex:- <button bind-disabled='isDisabled'>Click me</button>.
+
+What is DOM?
+DOM stands for Document Object Model.
+When a browser loads a web page, the browser creates a Document Object Model of that page.
+
+What is the difference between HTML element attribute and DOM property?
+Attributes are defined by HTML, where as properties are defined by the DOM.
+Attributes initialize DOM properties. Once the initialization complete, the attributes job is done.
+Property values can change, where as attribute values can't.
+
+Attribute binding :-
+This error is because we do not have a corresponding property in the DOM for colspan attribute. 
+To fix this we have to use attribute-binding in Angular, which sets the colspan attribute. 
+To tell angular framework that we are setting an attribute value we have to prefix the attribute name with attr and a DOT as shown below.
+Ex :- <th [attr.colspan]="columnSpan">
+
+The same is true when using interpolation
+Ex :- <th attr.colspan="{{columnSpan}}">
+
+class binding :- [ngclass]
+-------------
+style binding :- [ngstyle]
+-------------
+Event binding :- (Click)
+--------------
+When a user performs any action like clicking on a button, hovering over an element,
+selecting from a dropdownlist, typing in a textbox etc, 
+then the corresponding event for that action is raised. 
+We need to know when user performs these actions.
+We can use angular event binding to get notified when these events occur.
+
+Twoway data binding :-
+--------------------
+Ex :- <input [(ngModel)]='name'>
+The square brackets on the outside are for property binding 
+The parentheses on the inside are for event binding
+
+ngFor directive :- *ngFor
+---------------
+ngFor is usually used to display an array of items
+Since ngFor is a structural directive it is prefixed with *
+
+trackBy ngFor directive :-
+-----------------------
+We can help Angular to track which items added or removed by providing a trackBy function. 
+The trackBy function takes the index and the current item as arguments and needs to return the unique identifier for this item.
+
+Pipes in Angular :-
+----------------
+Transform data before display.
+Built in pipes include lowercase, uppercase, decimal, date, percent, currency etc.
+
+To apply a pipe on a bound property use the pipe character " | "
+Ex:-  <td>{{employee.code | uppercase}}</td>
+
+We can also chain pipes.
+Ex:-  <td>{{employee.dateOfBirth | date:'fullDate' | uppercase }}</td>
+
+Pass parameters to pipe using colon " : "
+Ex:-  <td>{{employee.annualSalary | currency:'USD':true:'1.3-3'}}</td>
+      <td>{{employee.dateOfBirth | date:'fullDate'}}</td>
+      <td>{{employee.dateOfBirth | date:'dd/MM/y'}}</td>
+
+Custom pipes can be created.
+
+Custom Pipe in Angular :-
+----------------------
+A pipe is a class decorated with pipe metadata. 
+The pipe class implements the PipeTransform interface's transform method that accepts an input value followed by optional parameters and returns the transformed value.
+
+Nested Parent Components :-
+------------------------
+
+@Input :-
+------
+Pass data from parent to child with input bindinglink.
+Input is used to receive data in whereas Output is used to send data out. 
+Output sends data out by exposing event producers, usually EventEmitter objects.
+
+@Output :-
+-------
+Pass data from child to parent with Output bindinglink.
+Output sends data out by exposing event producers, usually EventEmitter objects.
+
+
+Operator :-
+--------
+=	  :- Assign a value
+==  :-	Compare two values
+=== :- Compare two values and their types
