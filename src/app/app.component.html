@@ -1,13 +1,36 @@
-<div>
+<div style="padding:5px">
+    <ul class="nav nav-tabs">
+        <li routerLinkActive="active">
+            <a routerLink="home">Home</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="employees">Employees</a>
+        </li>
+    </ul>
+    <br/>
+    <router-outlet></router-outlet>
+</div>
+
+
+<!-- <div>
     <app-employee></app-employee>
 </div>
 <br>
 <div>
     <app-employeeList></app-employeeList>
 </div>
-<br>
-Name : <input [value]='name' (input)='name = $event.target.value'>
+<br> -->
+
+
+<!-- Name : <input [value]='name' (input)='name = $event.target.value'>
 <br>
 Name : <input [(ngModel)]='name'>
 <br>
 You entered : {{name}}
+
+
+<br/>
+Your Text : <input type='text' [(ngModel)]='userText'/>
+               <br/><br/>
+               <app-simple [simpleInput]='userText'></app-simple>
+<br> -->

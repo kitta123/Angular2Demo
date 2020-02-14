@@ -158,9 +158,82 @@ Output sends data out by exposing event producers, usually EventEmitter objects.
 Pass data from child to parent with Output bindinglink.
 Output sends data out by exposing event producers, usually EventEmitter objects.
 
-
 Operator :-
 --------
 =	  :- Assign a value
 ==  :-	Compare two values
 === :- Compare two values and their types
+
+Interfaces in Angular 2 :-
+----------------------- 
+It only contain declarations of properties, methods and events. 
+The implementation for the interface members is provided by a class that implements the interface.
+
+Use interface keyword to create an interface.
+Use the implements keyword to make a class implement an interface.
+To reduce the amount of code you have to write, 
+consider using short-hand syntax to initialise class properties with constructor parameters.
+
+
+Angular component lifecycle hooks :-
+---------------------------------
+A component has a lifecycle managed by Angular. Angular
+Creates the component
+Renders the component
+Creates and renders the component children
+Checks when the component data-bound properties change, and 
+Destroys the component before removing it from the DOM.
+
+
+
+Life Cycle Hook	Purpose
+ngOnChanges :-	Executes, every time the value of an input property changes. The hook method receives a SimpleChanges object containing current and previous property values. This is called before ngOnInit
+ngOnInit :-	Executes after the constructor and after ngOnChange hook for the first time. It is most commonly used for component initialisation and retrieving data from a database
+ngOnDestroy :-	Executes just before angular destroys the component and generally used for performing cleanup.
+
+Angular services :-
+----------------
+Angular services are single objects that normally get instantiated only once during the lifetime of the Angular application. 
+This Angular service maintains data throughout the life of an application.
+It means data does not get replaced or refreshed and is available all the time.
+
+A service in Angular is generally used when you need to reuse data or logic across multiple components. 
+Anytime you see logic or data-access duplicated across multiple components, think about refactoring that piece of logic or data-access code into a service. 
+Using a service ensures we are not violating one of the Software principles - DRY ((Don't repeat yourself). 
+The logic or data access is implemented once in a service, and the service can be used across all the components in our application.
+
+Injectable:-
+----------
+To define a class as a service in Angular, use the @Injectable() decorator to provide the metadata that allows Angular to inject it into a component as a dependency. 
+Similarly, use the @Injectable() decorator to indicate that a component or other class (such as another service, a pipe, or a
+
+What is an Observable?
+---------------------
+Observable is an asynchronous pattern. In the Observable pattern we have an Observable and an Observer. 
+Observer observes the Observable. In many implementations an Observer is also called as a Subscriber.
+An Observable can have many Observers (also called Subscribers).
+Observable emits items or notifications over time to which an Observer (also called Subscriber) can subscribe.
+When a subscriber subscribes to an Observable, the subscriber also specifies a callback function.
+This subscriber callback function is notified as and when the Observable emits items or notifications.
+Within this callback function we write code to handle data itmes or notifications received from the Observable.
+
+http error handling :-
+-------------------
+When using http, to call a web service, errors may occur. 
+When they do occur we want to handle these errors.
+We use the catch operator to catch any exceptions that occur.
+
+Angular 2 routing :-
+-----------------
+Routing is used to navigate to one component to other component.
+
+What is Dependency Injection?
+----------------------------
+It's a coding pattern in which a class receives its dependencies from an external source rather than creating them itself. 
+
+Why dependency injection?
+------------------------
+Create applications that are easy to write and maintain over time as the application evolves.
+Easy to share data and functionality as the angular injector provides a Singleton.
+i.e a single instance of the service
+Easy to write and maintain unit tests as the dependencies can be mocked.
